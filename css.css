@@ -1,3 +1,31 @@
-.1 {
-	display: none;
+body {background-color: #FAEBD7;
 }
+table {
+	width: 50%;  
+	text-align:center;
+	margin: auto;
+	position: center;
+}
+td p {font: bold italic 20pt serif
+}
+
+td {border: 1px solid black;
+ margin-top: 0;
+ margin-bottom: 0;
+ background-color: cyan;
+}
+#top-left {
+	border-top-left-radius: 20px;
+
+}
+#top-right {
+	border-top-right-radius: 20px;
+}
+#bottom-left {border-bottom-left-radius: 20px;
+}
+#bottom-right {border-bottom-right-radius: 20px;}
+input {border-radius :5px;
+	float: right;
+	margin-top: 8px;
+}
+label {font-family: Courier;}
