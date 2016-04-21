@@ -1,12 +1,18 @@
 body {background-color: #FAEBD7;
 }
+#button {
+	float: left;
+	width: 25%;
+}
 table {
 	width: 50%;  
 	text-align:center;
 	margin: auto;
 	position: center;
+	border-collapse: separate;
+	border-spacing: 0;
 }
-td p {font: bold italic 20pt serif
+td p {font: bold italic 20pt serif;
 }
 
 td {border: 1px solid black;
@@ -15,17 +21,27 @@ td {border: 1px solid black;
  background-color: cyan;
 }
 #top-left {
+	border: 1px solid black;
 	border-top-left-radius: 20px;
 
 }
 #top-right {
+	border: 1px solid black;
 	border-top-right-radius: 20px;
 }
-#bottom-left {border-bottom-left-radius: 20px;
+#bottom-left {
+	border: 1px solid black;
+	border-bottom-left-radius: 20px;
 }
-#bottom-right {border-bottom-right-radius: 20px;}
+#bottom-right {
+	border: 1px solid black;
+	border-bottom-right-radius: 20px;}
 input {border-radius :5px;
 	float: right;
 	margin-top: 8px;
 }
 label {font-family: Courier;}
+#login, #password {
+	width: 50%;
+	height: 15px;
+}
