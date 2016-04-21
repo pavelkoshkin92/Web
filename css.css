@@ -15,26 +15,27 @@ table {
 td p {font: bold italic 20pt serif;
 }
 
-td {border: 1px solid black;
+td {border: 1px solid;
+	border-color: #778899;
  margin-top: 0;
  margin-bottom: 0;
- background-color: cyan;
+ background-color: floralwhite;
 }
 #top-left {
-	border: 1px solid black;
+	border: 1px solid #778899;
 	border-top-left-radius: 20px;
 
 }
 #top-right {
-	border: 1px solid black;
+	border: 1px solid #778899;
 	border-top-right-radius: 20px;
 }
 #bottom-left {
-	border: 1px solid black;
+	border: 1px solid #778899;
 	border-bottom-left-radius: 20px;
 }
 #bottom-right {
-	border: 1px solid black;
+	border: 1px solid #778899;
 	border-bottom-right-radius: 20px;}
 input {border-radius :5px;
 	float: right;
