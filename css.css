@@ -45,3 +45,7 @@ label {font-family: Courier;}
 	width: 50%;
 	height: 15px;
 }
+@media screen and (max-width: 1919px){
+#last{
+    display: none;}
+}
