@@ -1,5 +1,8 @@
 body {background-color: #FAEBD7;
 }
+p {
+	font-size: 20pt;
+}
 #button {
 	float: left;
 	width: 25%;
@@ -46,7 +49,14 @@ label {font-family: Courier;}
 	width: 50%;
 	height: 15px;
 }
-@media screen and (max-width: 1919px){
+@media screen and (max-height: 300px){
 #last{
     display: none;}
+#bottom-left2 {	
+    border: 1px solid #778899;
+	border-bottom-left-radius: 20px;}
+#bottom-right2 {
+	border: 1px solid #778899;
+	border-bottom-right-radius: 20px;
+}
 }
