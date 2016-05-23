@@ -1,0 +1,39 @@
+@base_width: 400px;
+@base_height: 400px;
+@base_margin: 200px;
+@color: cyan;
+
+.styles
+{   
+    border: 2px solid black;
+    }
+#d1 {
+    width: @base_width;
+    height: @base_height;
+    margin: @base_margin auto;
+    background-color: @color;
+    .styles;
+}
+#d2 {
+    .styles;
+    width: @base_width / 2;
+    height: @base_height / 2;
+    margin: @base_margin / 2 auto;
+    background-color: darken(@color, 20%);
+}
+#d3{
+    .styles;
+    width: @base_width / 4;
+    height: @base_height / 4;
+    margin: @base_margin / 4 auto;
+    background-color: darken(@color, 40%);
+        
+}
+#d4{
+    .styles;
+    width: @base_width / 8;
+    height: @base_height / 8;
+    margin: @base_margin / 8 auto;
+    background-color:darken(@color, 80%);
+}
+

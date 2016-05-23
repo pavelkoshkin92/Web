@@ -1,0 +1,772 @@
+.container {
+	position: relative;
+	background-image: url('./images/arena.jpg');
+	width: 1000px;
+	height: 450px;
+	background-size: 100% 100%;
+	margin: 0 auto;
+
+}
+.fight {
+	background-image: url('./images/fight.gif');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	width: 174px;
+    height: 120px;
+	position: absolute;
+	top: 100px;
+	left: 400px;
+	
+	animation-name: letsfight;
+	animation-delay: 1s;
+	animation-duration: 5s;
+	animation-timing-function: linear;
+	animation-fill-mode:forwards;
+	
+}
+@keyframes letsfight {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.win {
+	background-image: url('./images/24.gif');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	width: 184px;
+    height: 19px;
+	position: absolute;
+	top: 200px;
+	left: 400px;
+	opacity: 0;
+	animation-name: scwins;
+	animation-delay: 11s;
+	animation-duration: 7s;
+	animation-timing-function: linear;
+}
+@keyframes scwins {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.scorpion {
+	background-image: url('./images/scorpion/stance/stance.gif');
+	background-size: 100% 100%;
+	height: 131px;
+	width: 73px;
+	position: absolute;
+	top: 270px;
+	left: 250px;
+	animation-name: scattack;
+	animation-delay: 3s;
+	animation-duration: 15s;
+	animation-timing-function: linear;
+	 
+}
+@keyframes scattack {
+1% {
+	background-image: url('./images/scorpion/jump/jump1.png');
+	background-size: 100% 100%;
+	width: 71px;
+    height: 136px;
+	position: absolute;
+	top: 250px;
+	left: 260px;	
+}
+2% {
+	background-image: url('./images/scorpion/jump/jump2.png');
+	background-size: 100% 100%;
+	width: 55px;
+    height: 74px;
+	position: absolute;
+	top: 240px;
+	left: 270px;
+	
+}
+3% {
+	background-image: url('./images/scorpion/jump/jump3.png');
+	background-size: 100% 100%;
+	width: 74px;
+    height: 52px;
+    
+	position: absolute;
+	top: 230px;
+	left: 280px;
+	
+}
+4% {
+	background-image: url('./images/scorpion/jump/jump4.png');
+	background-size: 100% 100%;
+	width: 74px;
+    height: 55px;
+    
+	position: absolute;
+	top: 230px;
+	left: 290px;
+	
+}
+5% {
+	background-image: url('./images/scorpion/jump/jump5.png');
+	background-size: 100% 100%;
+	width: 53px;
+    height: 74px;
+    
+	position: absolute;
+	top: 225x;
+	left: 310px;
+	
+}
+6% {
+	background-image: url('./images/scorpion/jump/jump6.png');
+	background-size: 100% 100%;
+	width: 55px;
+    height: 73px;
+    
+	position: absolute;
+	top: 230px;
+	left: 310px;
+}
+7%	{
+	background-image: url('./images/scorpion/jump/jump7.png');
+	background-size: 100% 100%;
+	width: 74px;
+    height: 52px;
+    
+	position: absolute;
+	top: 250px;
+	left: 325px;
+}
+8% {
+	background-image: url('./images/scorpion/jump/jump8.png');
+	background-size: 100% 100%;
+	width: 74px;
+    height: 55px;
+    
+	position: absolute;
+	top: 270px;
+	left: 330px;
+}
+9% {
+	background-image: url('./images/scorpion/jump/jump9.png');
+	background-size: 100% 100%;
+	width: 60px;
+    height: 107px;
+    
+	position: absolute;
+	top: 270px;
+	left: 330px;
+}
+10% {
+	background-image: url('./images/scorpion/jump/jump10.png');
+	background-size: 100% 100%;
+	width: 52px;
+    height: 128px;
+    
+	position: absolute;
+	top: 273px;
+	left: 330px;
+}
+14% {
+	background-image: url('./images/scorpion/jump/jump10.png');
+	background-size: 100% 100%;
+	width: 52px;
+    height: 128px;
+    
+	position: absolute;
+	top: 273px;
+	left: 330px;
+}
+16% {
+	background-image: url('./images/scorpion/snake/snake1.png');
+	background-size: 100% 100%;
+	width: 77px;
+    height: 125px;
+    
+	position: absolute;
+	top: 276px;
+	left: 330px;
+}
+17% {
+	background-image: url('./images/scorpion/snake/snake2.png');
+	background-size: 100% 100%;
+	width: 52px;
+    height: 125px;
+    
+	position: absolute;
+	top: 276px;
+	left: 330px;
+}
+18% {
+	background-image: url('./images/scorpion/snake/snake3.png');
+	background-size: 100% 100%;
+	width: 70px;
+    height: 123px;
+    
+	position: absolute;
+	top: 278px;
+	left: 330px;
+}
+19% {
+	background-image: url('./images/scorpion/snake/snake4.png');
+	background-size: 100% 100%;
+	width: 94px;
+    height: 126px;
+    z-index: 2;
+	position: absolute;
+	top: 275px;
+	left: 330px;
+}
+21% {
+	background-image: url('./images/scorpion/snake/snake4.png');
+	background-size: 100% 100%;
+	width: 94px;
+    height: 126px;
+    z-index: 2;
+	position: absolute;
+	top: 275px;
+	left: 330px;
+}
+22% {
+	background-image: url('./images/scorpion/snake/snake5.png');
+	background-size: 100% 100%;
+	width: 97px;
+    height: 125px;
+    z-index: 2;
+	position: absolute;
+	top: 276px;
+	left: 330px;
+}
+23% {
+	background-image: url('./images/scorpion/snake/snake6.png');
+	background-size: 100% 100%;
+	width: 80px;
+    height: 127px;
+    z-index: 2;
+	position: absolute;
+	top: 274px;
+	left: 330px;
+}
+24% {
+	background-image: url('./images/scorpion/snake/snake7.png');
+	background-size: 100% 100%;
+	width: 64px;
+    height: 127px;
+    z-index: 2;
+	position: absolute;
+	top: 274px;
+	left: 350px;
+}
+25% {
+	background-image: url('./images/scorpion/snake/snake8.png');
+	background-size: 100% 100%;
+	width: 61px;
+    height: 122px;
+    z-index: 2;
+	position: absolute;
+	top: 279px;
+	left: 370px;
+}
+26% {
+	background-image: url('./images/scorpion/sit/sit1.png');
+	background-size: 100% 100%;
+	width: 60px;
+    height: 107px;
+    z-index: 2;
+	position: absolute;
+	top: 294px;
+	left: 370px;
+}
+27% {
+	background-image: url('./images/scorpion/sit/sit2.png');
+	background-size: 100% 100%;
+	width: 62px;
+    height: 89px;
+    z-index: 2;
+	position: absolute;
+	top: 312px;
+	left: 370px;
+}
+28% {
+	background-image: url('./images/scorpion/sit/sit3.png');
+	background-size: 100% 100%;
+	width: 64px;
+    height: 71px;
+    z-index: 2;
+	position: absolute;
+	top: 330px;
+	left: 370px;
+}
+29% {
+	background-image: url('./images/scorpion/sit/punch1.png');
+	background-size: 100% 100%;
+	width: 75px;
+    height: 75px;
+    z-index: 2;
+	position: absolute;
+	top: 326px;
+	left: 370px;
+}
+30% {
+	background-image: url('./images/scorpion/sit/punch2.png');
+	background-size: 100% 100%;
+	width: 75px;
+    height: 89px;
+    z-index: 2;
+	position: absolute;
+	top: 312px;
+	left: 370px;
+}
+31% {
+	background-image: url('./images/scorpion/sit/punch3.png');
+	background-size: 100% 100%;
+	width: 77px;
+    height: 115px;
+    z-index: 2;
+	position: absolute;
+	top: 286px;
+	left: 370px;
+}
+32% {
+	background-image: url('./images/scorpion/sit/punch4.png');
+	background-size: 100% 100%;
+	width: 87px;
+    height: 125px;
+    z-index: 2;
+	position: absolute;
+	top: 276px;
+	left: 370px;
+}
+33% {
+	background-image: url('./images/scorpion/sit/punch5.png');
+	background-size: 100% 100%;
+	width: 50px;
+    height: 160px;
+    z-index: 2;
+	position: absolute;
+	top: 241px;
+	left: 370px;
+}
+36% {
+	background-image: url('./images/scorpion/jump/jump10.png');
+	background-size: 100% 100%;
+	width: 52px;
+    height: 128px;
+    
+	position: absolute;
+	top: 273px;
+	left: 370px;
+}
+45% {
+	background-image: url('./images/scorpion/jump/jump10.png');
+	background-size: 100% 100%;
+	width: 52px;
+    height: 128px;
+    
+	position: absolute;
+	top: 273px;
+	left: 370px;
+}
+47% {
+	background-image: url('./images/scorpion/win/win1.png');
+	background-size: 100% 100%;
+	width: 60px;
+    height: 133px;
+    
+	position: absolute;
+	top: 268px;
+	left: 370px;
+}
+48% {
+	background-image: url('./images/scorpion/win/win2.png');
+	background-size: 100% 100%;
+	width: 55px;
+    height: 148px;
+    
+	position: absolute;
+	top: 255px;
+	left: 375px;
+}
+49% {
+	background-image: url('./images/scorpion/win/win3.png');
+	background-size: 100% 100%;
+	width: 40px;
+    height: 169px;
+    
+	position: absolute;
+	top: 234px;
+	left: 385px;
+}
+100% {
+	background-image: url('./images/scorpion/win/win3.png');
+	background-size: 100% 100%;
+	width: 40px;
+    height: 169px;
+    
+	position: absolute;
+	top: 234px;
+	left: 385px;
+}
+}
+.garpun {
+	animation-name: skhit;
+	animation-delay: 6s;
+	animation-duration: 1.5s;
+	animation-timing-function: linear;
+	z-index: 1;
+}
+@keyframes  skhit {
+	0% {
+	background-image: url('./images/scorpion/snake/garpun1.png');
+	background-size: 100% 100%;
+	width: 288px;
+    height: 28px;
+    
+	position: absolute;
+	top: 285px;
+	left: 240px;
+	opacity: 0;
+	}
+	12% {
+	background-image: url('./images/scorpion/snake/garpun1.png');
+	background-size: 100% 100%;
+	width: 288px;
+    height: 28px;
+    
+	position: absolute;
+	top: 285px;
+	left: 260px;
+	opacity: 0.1;
+	}
+	25% {
+	background-image: url('./images/scorpion/snake/garpun1.png');
+	background-size: 100% 100%;
+	width: 288px;
+    height: 28px;
+    
+	position: absolute;
+	top: 285px;
+	left: 360px;
+	opacity: 0.3;
+	}
+	37% {
+	background-image: url('./images/scorpion/snake/garpun1.png');
+	background-size: 100% 100%;
+	width: 288px;
+    height: 28px;
+    
+	position: absolute;
+	top: 285px;
+	left: 380px;
+	opacity: 0.4;
+	}
+	43% {
+	background-image: url('./images/scorpion/snake/garpun1.png');
+	background-size: 100% 100%;
+	width: 288px;
+    height: 28px;
+    
+	position: absolute;
+	top: 285px;
+	left: 400px;
+	opacity: 0.7;
+	}
+	50% {
+	background-image: url('./images/scorpion/snake/garpun1.png');
+	background-size: 100% 100%;
+	width: 288px;
+    height: 28px;
+    
+	position: absolute;
+	top: 285px;
+	left: 440px;
+	opacity: 1;
+	}
+	51% {
+	background-image: url('./images/scorpion/snake/garpun2.png');
+	background-size: 100% 100%;
+	width: 261px;
+    height: 10px;
+    
+	position: absolute;
+	top: 285px;
+	left: 467px;
+	opacity: 1;
+	}
+	58% {
+	background-image: url('./images/scorpion/snake/garpun2.png');
+	background-size: 100% 100%;
+	width: 261px;
+    height: 10px;
+    
+	position: absolute;
+	top: 285px;
+	left: 440px;
+	opacity: 0.4;
+	}
+	70% {
+	background-image: url('./images/scorpion/snake/garpun2.png');
+	background-size: 100% 100%;
+	width: 261px;
+    height: 10px;
+    
+	position: absolute;
+	top: 285px;
+	left: 380px;
+	opacity: 0.2;
+	}
+	80% {
+	background-image: url('./images/scorpion/snake/garpun2.png');
+	background-size: 100% 100%;
+	width: 261px;
+    height: 10px;
+    
+	position: absolute;
+	top: 285px;
+	left: 220px;
+	opacity: 0.1;
+	}
+	100% {
+	background-image: url('./images/scorpion/snake/garpun2.png');
+	background-size: 100% 100%;
+	width: 261px;
+    height: 10px;
+    
+	position: absolute;
+	top: 285px;
+	left: 180px;
+	opacity: 0;
+	}
+}
+.sub-zero {
+	background-image: url('./images/sub-zero/stance/a1.gif');
+	background-size: 100% 100%;
+	height: 131px;
+	width: 67px;
+	position: absolute;
+	top: 285px;
+	left: 690px;
+	transform: rotateY(180deg);
+	animation-name: sz;
+	animation-delay: 3s;
+	animation-duration: 15s;
+	animation-timing-function: linear;
+}
+
+@keyframes sz {
+0% {
+	background-image: url('./images/sub-zero/freeze/freeze1.png');
+	background-size: 100% 100%;
+	height: 117px;
+	width: 66px;
+	position: absolute;
+	top: 295px;
+	left: 690px;
+	
+}
+1% {
+	background-image: url('./images/sub-zero/freeze/freeze2.png');
+	background-size: 100% 100%;
+	height: 105px;
+	width: 82px;
+	position: absolute;
+	top: 305px;
+	left: 690px;
+}
+2% {
+	background-image: url('./images/sub-zero/freeze/freeze3.png');
+	background-size: 100% 100%;
+	height: 96px;
+	width: 85px;
+	position: absolute;
+	top: 315px;
+	left: 690px;
+}
+5% {
+	background-image: url('./images/sub-zero/stance/stance.png');
+	background-size: 100% 100%;
+	height: 128px;
+	width: 56px;
+	position: absolute;
+	top: 285px;
+	left: 690px;
+}
+19% {
+	background-image: url('./images/sub-zero/stance/stance.png');
+	background-size: 100% 100%;
+	height: 128px;
+	width: 56px;
+	position: absolute;
+	top: 285px;
+	left: 690px;
+}
+24% {
+	background-image: url('./images/sub-zero/beinghit/hit1.png');
+	background-size: 100% 100%;
+	height: 125px;
+	width: 57px;
+	position: absolute;
+	top: 285px;
+	left: 690px;
+}
+25% {
+	background-image: url('./images/sub-zero/beinghit/hit2.png');
+	background-size: 100% 100%;
+	height: 129px;
+	width: 55px;
+	position: absolute;
+	top: 285px;
+	left: 690px;
+}
+
+30% {
+	background-image: url('./images/sub-zero/beinghit/hit2.png');
+	background-size: 100% 100%;
+	height: 129px;
+	width: 55px;
+	position: absolute;
+	top: 280px;
+	left: 425px;
+}
+35% {
+	background-image: url('./images/sub-zero/fall/fall1.png');
+	background-size: 100% 100%;
+	height: 137px;
+	width: 66px;
+	position: absolute;
+	top: 240px;
+	left: 450px;
+}
+36% {
+	background-image: url('./images/sub-zero/fall/fall2.png');
+	background-size: 100% 100%;
+	height: 106px;
+	width: 97px;
+	position: absolute;
+	top: 230px;
+	left: 470px;
+}
+37% {
+	background-image: url('./images/sub-zero/fall/fall3.png');
+	background-size: 100% 100%;
+	height: 57px;
+	width: 122px;
+	position: absolute;
+	top: 360px;
+	left: 500px;
+}
+38% {
+	background-image: url('./images/sub-zero/fall/fall4.png');
+	background-size: 100% 100%;
+	height: 44px;
+	width: 122px;
+	position: absolute;
+	top: 360px;
+	left: 500px;
+}
+39% {
+	background-image: url('./images/sub-zero/fall/fall5.png');
+	background-size: 100% 100%;
+	height: 66px;
+	width: 116px;
+	position: absolute;
+	top: 360px;
+	left: 500px;
+}
+40% {
+	background-image: url('./images/sub-zero/fall/fall6.png');
+	background-size: 100% 100%;
+	height: 50px;
+	width: 131px;
+	position: absolute;
+	top: 360px;
+	left: 500px;
+}
+100% {
+	background-image: url('./images/sub-zero/fall/fall6.png');
+	background-size: 100% 100%;
+	height: 50px;
+	width: 131px;
+	position: absolute;
+	top: 360px;
+	left: 500px;
+}
+}
+
+.ice {
+	transform: rotateY(180deg);
+	animation-name: iceball;
+	animation-delay: 3s;
+	animation-duration: 1.5s;
+	animation-timing-function: linear;
+}
+@keyframes iceball {
+0% {
+	background-image: url('./images/sub-zero/freeze/freeze4.png');
+	background-size: 100% 100%;
+	height: 35px;
+	width: 20px;
+	position: absolute;
+	top: 290px;
+	left: 670px;
+}
+17% {
+	background-image: url('./images/sub-zero/freeze/freeze5.png');
+	background-size: 100% 100%;
+	height: 60px;
+	width: 50px;
+	position: absolute;
+	top: 290px;
+	left: 620px;
+}
+34% {
+	background-image: url('./images/sub-zero/freeze/freeze6.png');
+	background-size: 100% 100%;
+	height: 70px;
+	width: 80px;
+	position: absolute;
+	top: 295px;
+	left: 540px;
+}
+51% {
+	background-image: url('./images/sub-zero/freeze/freeze7.png');
+	background-size: 100% 100%;
+	height: 60px;
+	width: 110px;
+	position: absolute;
+	top: 305px;
+	left: 430px;
+}
+68% {
+	background-image: url('./images/sub-zero/freeze/freeze8.png');
+	background-size: 100% 100%;
+	height: 35px;
+	width: 135px;
+	position: absolute;
+	top: 315px;
+	left: 295px;
+}
+85% {
+	background-image: url('./images/sub-zero/freeze/freeze9.png');
+	background-size: 100% 100%;
+	height: 30px;
+	width: 175px;
+	position: absolute;
+	top: 315px;
+	left: 120px;
+}
+100% {
+	background-image: url('./images/sub-zero/freeze/freeze10.png');
+	background-size: 100% 100%;
+	height: 30px;
+	width: 120px;
+	position: absolute;
+	top: 315px;
+	left: 0px;
+}
+}

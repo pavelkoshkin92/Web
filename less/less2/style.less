@@ -1,0 +1,26 @@
+@max-width: 500px;
+@max-lvls: 3;
+
+@x: 9px;
+@y: 9px;
+div {
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+//declaration
+.loop (@index: @max-lvls) when (@index>0) 
+{
+    .l_@{index}  
+    {
+    width: @max-width - 20 * (@index - 1);
+    height: @max-width - 20 * (@index - 1);
+    position: absolute;
+    left: @x;
+    top: @y;
+
+
+    }
+    .loop(@index - 1);
+}
+//execution
+.loop();

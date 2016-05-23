@@ -1,0 +1,25 @@
+body{
+@width: 10px;
+@addition-margin: 12em;
+@color: red;
+.red {
+    color: @color;
+}
+p {
+    color: @color;
+}
+p {
+    span {
+        color: @color;
+    }
+}
+.dsadsadas {
+    &:hover{
+        color: red;
+    }
+    &:link{color:blue}
+    &:visited{font-weight:bold}
+    &.red{background: transparent;
+    width:@width+@addition-margin;}
+}
+}
