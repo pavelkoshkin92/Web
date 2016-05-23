@@ -1,0 +1,19 @@
+header, footer, article, aside, nav {
+  border: 1px solid black;
+}
+#main {
+  display: flex;
+}
+#main nav, #main aside {
+  flex: 1;
+}
+#main nav {
+  order: 1;
+}
+#main aside {
+  order: 3;
+}
+#main article {
+  flex: 4;
+  order: 2;
+}

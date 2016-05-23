@@ -1,0 +1,10 @@
+{
+   "direction": "right|bottom",
+   "dir": "/Users/Paul/Desktop/My/PROGR/less/less3/images",
+   "files": ["*"],
+   "sprite": "icons-sprite.png",
+   "httpPath": "images",
+   "spacing": 50,
+   "retina": true,
+   "less": "./icon-sprite.less"
+}

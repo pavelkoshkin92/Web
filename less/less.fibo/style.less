@@ -1,0 +1,37 @@
+@max-width: 500px;
+@max_lvls: 5;
+
+@x: 10px;
+@y: 10px;
+div {
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+//declaration
+
+.loop (@index: @max_lvls) when (@index > 0) 
+{
+     
+    div   
+{
+    @size: @max-width - 80 * (@max_lvls - @index);
+    @step_color: 255 / @max_lvls;
+    @current_index:@step_color * @index;
+    
+    background-color: rgb(@current_index, @step_color, @current_index);
+    
+    width: @size;
+    height: @size;
+    margin: 20px auto;
+        
+    position: absolute;
+    left: @x - 1px;
+    top: @y - 1px;
+    .loop(@index - 1);
+        
+    }
+    
+    
+}
+//execution
+.loop();
