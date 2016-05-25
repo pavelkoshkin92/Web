@@ -125,8 +125,41 @@ a.number = 5
 
 console.log(b.number);
 */
-var name = prompt("Item call:");
+/*var name = prompt("Item call:");
 var pricePerItem = +prompt("Get price of item");
 var count = +prompt ("Get count of items");
 
-alert ("Thank you for buying " + name + "(s)." + "Total: " + pricePerItem*count);
+alert (`Thank you for buying ${name}(s). Total: ${pricePerItem*count}`);*/
+var first = +prompt("Enter first number");
+var operator = prompt("Input operator");
+var second = +prompt("Enter second number");
+
+if (first != null) {
+    if (operator == "*") {
+        console.log(first * second)
+    }
+    else if (operator == "/") {
+        console.log(first / second)
+    }
+    else if (operator == "+") {
+        console.log(first + second)
+    }
+    else if (operator == "-") {
+        console.log(first - second)
+    }
+    else if (operator == "^") {
+        console.log(Math.pow(first, second))
+    }
+    else {
+        console.log("ERROR")
+    }
+    ;
+
+    if (operator == "/" && second == 0) {
+        alert("You can't divide by zero")
+    }
+}
+else {
+    alert("You should fill all fields")
+}
+
