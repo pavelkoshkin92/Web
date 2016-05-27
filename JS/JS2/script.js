@@ -4,29 +4,38 @@
 var first = parseInt(prompt("Enter first number"));
 var operator = prompt("Input operator");
 var second = parseInt(prompt("Enter second number"));
+if (!first || second || operator) {
+    if (!isNaN(first) && !isNaN(second)) {
+        if (operator == "*") {
+            console.log(first * second)
+        }
+        else if (operator == "/") {
+            console.log(first / second)
+        }
+        else if (operator == "+") {
+            console.log(first + second)
+        }
+        else if (operator == "-") {
+            console.log(first - second)
+        }
+        else if (operator == "^") {
+            console.log(Math.pow(first, second))
+        }
+        else {
+            console.log("ERROR")
+        }
+        ;
 
+        if (operator == "/" && second == 0) {
+            alert("You can't divide by zero")
+        }
 
-    if (operator == "*") {
-        console.log(first * second)
-    }
-    else if (operator == "/") {
-        console.log(first / second)
-    }
-    else if (operator == "+") {
-        console.log(first + second)
-    }
-    else if (operator == "-") {
-        console.log(first - second)
-    }
-    else if (operator == "^") {
-        console.log(Math.pow(first, second))
     }
     else {
-        console.log("ERROR")
-    };
-
-    if (operator == "/" && second == 0) {
-        alert("You can't divide by zero")
+        alert("Input number")
     }
-
-
+}
+else {
+    alert("Error")
+}
+// ['+', '-',...].find()
