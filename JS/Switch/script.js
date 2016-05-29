@@ -74,7 +74,7 @@ var weekMap_arr = [
 
 var input = +prompt("Enter"),
     result_obj = weekMap_obj[input];
-    result_arr = weekMap_arr[input-1]
+    result_arr = weekMap_arr[input-1];
 
 if(!result_obj){
     result_obj = "Wrong index"
