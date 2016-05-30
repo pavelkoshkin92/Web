@@ -1,10 +1,10 @@
 var students = [
-     "Misha",
-     "Grisha",
-     "Tanya",
-     "Kolya",
-     "Vanya",
-     "Olya"
+    "Misha",
+    "Grisha",
+    "Tanya",
+    "Kolya",
+    "Vanya",
+    "Olya"
 ];
 
 var lessons = {
@@ -24,46 +24,40 @@ var marks = {
     5: [3,4,5,4,3,4],
     6: [2,3,2,5,4,5]
 };
+var subject = prompt("Введите название предмета");
 
+document.write('<table>');
+//document.write('<tr>'+'<td>'+"name"+'</td>'+'<td>'+"1"+'</td>'+'<td>'+"2"+'</td>'+'<td>'+"3"+'</td>'+'<td>'+"4"+'</td>'+'<td>'+"5"+'</td>'+'<td>'+"6"+'</td>'+'</tr>');
+document.write('<tr>'+'<td>'+"name"+'</td>');
+
+for (var name in lessons){
+    if(subject==lessons[name]){
+        document.write('<td>'+lessons[name]+'</td>')
+    }
+    else{
+        document.write('<td>'+name+'</td>')
+    }
+}
+
+document.write('<tr>');
 for(var st_counter = 0; st_counter < students.length; st_counter++){
     var student = students[st_counter];
+    console.log(student);
+    document.write('<td>'+student+'</td>');
 
-    for(var key in lessons){
-        for(var les_counter = 1; les_counter <= Object.keys(lessons).length; les_counter++) {
-            key = lessons[les_counter];
 
-            var mark = marks[les_counter][st_counter];
-            console.log(student, key, mark)
-        }
+    for(var les_counter = 1; les_counter <= Object.keys(lessons).length; les_counter++) {
+        var lesson = lessons[les_counter];
+
+        var mark = marks[les_counter][st_counter];
+
+        console.log(lesson, mark);
+        document.write('<td>'+mark+'</td>');
+
+
     }
+    document.write('</tr>')
+}
 
-}
-/*
-name = prompt("Enter name of subject");
-switch (name) {
-    case "English":
-        lessons[1] = "English";
-        console.log(student, lesson, mark);
-        break;
-    case "Math":
-        lessons[2] = "Math";
-        console.log(student, lesson, mark);
-        break;
-    case "Chemistry":
-        lessons[3] = "Chemistry";
-        console.log(student, lesson, mark);
-        break;
-    case "Literature":
-        lessons[4] = "Literature";
-        console.log(student, lesson, mark);
-        break;
-    case "Geography":
-        lessons[5] = "Geography";
-        console.log(student, lesson, mark);
-        break;
-    case "Physics":
-        lessons[6] = "Physics";
-        console.log(student, lesson, mark);
-        break;
-}
-*/
+document.write('</table>');
+

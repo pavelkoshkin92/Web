@@ -13,7 +13,6 @@ var list = {
     age: 31,
     cost: 31.2
 };
-console.log("=======");
 for(var name in list) {
     console.log(name);
 };
