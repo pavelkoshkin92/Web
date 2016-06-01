@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canv" width="300" height="500"></canvas>
+<script>
+    'use strict';
+    /*var canvas = document.getElementById("canv");
+    var x = canvas.getContext("2d");
+    //1st
+    x.beginPath();
+    x.moveTo(10, 10);
+    x.lineTo(10, 500);
+
+    //2nd
+    x.moveTo(10,10);
+    x.lineTo(200, 10);
+
+    //3rd
+    x.lineTo(200, 50);
+
+
+    //4th HEAD
+    x.arc(200,75,25,1.5*Math.PI,4*Math.PI);
+
+    //5th BODY
+    x.moveTo(200, 100);
+    x.lineTo(200, 280);
+
+    //6th LEFT ARM
+    x.moveTo(200, 120);
+    x.lineTo(120, 160);
+
+    //7th RIGHT ARM
+    x.moveTo(200, 120);
+    x.lineTo(280, 160);
+
+    //8th LEFT LEG
+    x.moveTo(200, 280);
+    x.lineTo(150, 450);
+
+    //9th RIGHT LEG
+    x.moveTo(200, 280);
+    x.lineTo(250, 450);
+
+    x.stroke();
+    */
+    /*var word = ["","apple","vegetable","array","object","chemistry","blood","javascript","animal","human","helicopter"];
+    var min = 1;
+    var max = words.length;
+    var savedIndex = Math.round(Math.random()*(max - min) + min);
+
+    var savedWord = words[savedIndex];*/
+    var word = [];
+    var fails = 0;
+    let wrongLetters = [];
+    let savedWord = prompt("Enter the word");
+    let nWord = savedWord.split("");
+    while(fails < 9){
+
+        let letter = String(prompt(`Enter the letter | Wrong letters: ${wrongLetters}`));
+        if(nWord.indexOf(letter) >= 0){
+            word[nWord.indexOf(letter)] = letter;
+            console.log(letter);
+            console.log("word: " + word);
+
+        } else if(nWord.indexOf(letter) == -1){
+            console.log("Wrong letter");
+            fails++;
+            console.log(fails);
+        }
+
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*logic
+var word = prompt("Enter the word");
+var masWord = word.split("");
+console.log(masWord);
+
+var fails = 9;
+var correct = masWord.length;
+var a=true;
+
+while(correct>0){
+var letter=prompt("Enter letter:");
+var testWord = new Array(masWord.length);
+
+document.write("<table>");
+    document.write("<tr>");
+        for (var i=0 ; i<masWord.length; i++){
+        document.write("<td>");
+            if(letter==masWord[i]){
+            testWord[i]=masWord[i];
+            correct--;
+            a=false;
+            console.log(testWord[i]);
+
+            for(var j = 0 ; j<testWord.length;j++){
+            document.write(testWord[i]);
+            }
+
+            }
+
+            document.write("<td>");
+            }
+            document.write("</tr>");
+    document.write("</table>");
+if (a==true){
+fails--;
+console.log(fails);
+}
+if(fails==0){
+break;
+}
+
+
+for(var j = 0 ; j<testWord.length;j++){
+console.log(testWord[j]);
+}
+}
+*/
+
