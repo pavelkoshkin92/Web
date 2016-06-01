@@ -24,7 +24,7 @@
     }
     console.log(testWord);
 
-    while(correct>0){
+    while(correct>0 && fails < 9){
         var letter=prompt("Enter letter:");
 
         if(masWord.indexOf(letter)==-1){
@@ -45,11 +45,6 @@
 
         document.getElementById('result').innerHTML = testWord.join('');
 
-
-        //wut?!
-        if(fails==9){
-            correct=0;
-        }
 
         switch(fails){
 
