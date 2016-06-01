@@ -9,7 +9,7 @@
 <div id="result"></div>
 <script>
     var canvas = document.getElementById("canv");
-    var x = canvas.getContext("2d");
+    var contextOfCanvas = canvas.getContext("2d");
 
     //logic
     var word = prompt("Enter the word"); // 'test'
@@ -43,74 +43,75 @@
             }
         }
 
+        drawGuessedChars();
+
+        drawVictim(fails, contextOfCanvas);
+    }
+
+    function drawGuessedChars() {
         document.getElementById('result').innerHTML = testWord.join('');
+    }
 
-
-        switch(fails){
+    function drawVictim(currentStep, context) {
+        switch (currentStep) {
 
             case(1):
-
-                x.beginPath();
-                x.moveTo(10, 10);
-                x.lineTo(10, 500);
-                x.stroke();
-                continue;
+                context.beginPath();
+                context.moveTo(10, 10);
+                context.lineTo(10, 500);
+                context.stroke();
+                break;
 
 
             case(2):
-                x.moveTo(10,10);
-                x.lineTo(200, 10);
-                x.stroke();
-                continue;
+                context.moveTo(10, 10);
+                context.lineTo(200, 10);
+                context.stroke();
+                break;
 
 
             case(3):
-                x.lineTo(200, 50);
-                x.stroke();
-                continue;
+                context.lineTo(200, 50);
+                context.stroke();
+                break;
 
             case(4):
-                x.arc(200,75,25,1.5*Math.PI,4*Math.PI);
-                x.stroke();
-                continue;
+                context.arc(200, 75, 25, 1.5 * Math.PI, 4 * Math.PI);
+                context.stroke();
+                break;
 
             case(5):
-                x.moveTo(200, 100);
-                x.lineTo(200, 280);
-                x.stroke();
-                continue;
+                context.moveTo(200, 100);
+                context.lineTo(200, 280);
+                context.stroke();
+                break;
 
             case(6):
-                x.moveTo(200, 120);
-                x.lineTo(120, 160);
-                x.stroke();
-                continue;
+                context.moveTo(200, 120);
+                context.lineTo(120, 160);
+                context.stroke();
+                break;
 
             case(7):
-                x.moveTo(200, 120);
-                x.lineTo(280, 160);
-                x.stroke();
-                continue;
+                context.moveTo(200, 120);
+                context.lineTo(280, 160);
+                context.stroke();
+                break;
 
             case(8):
-                x.moveTo(200, 280);
-                x.lineTo(150, 450);
-                x.stroke();
-                continue;
+                context.moveTo(200, 280);
+                context.lineTo(150, 450);
+                context.stroke();
+                break;
 
             case(9):
-                x.moveTo(200, 280);
-                x.lineTo(250, 450);
-                x.stroke();
+                context.moveTo(200, 280);
+                context.lineTo(250, 450);
+                context.stroke();
                 break;
 
         }
-
-        for(var j = 0 ; j<testWord.length;j++){
-            console.log(testWord[j]);
-        }
     }
-    console.log(testWord);
 
 
 
