@@ -33,3 +33,4 @@
 *.iws
 
 _mac/*.xml
+*.DS_Store
