@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canv" width="300" height="500"></canvas>
+<div id="result"></div>
+<script>
+    var canvas = document.getElementById("canv");
+    var contextOfCanvas = canvas.getContext("2d");
+
+
+
+    var word = prompt("Enter the word");
+    var masWord = word.split("");
+
+
+    //logic
+    var word = prompt("Enter the word"); // 'test'
+    var masWord = word.split(""); // ['t', 'e', 's', 't']
+
+    console.log(masWord);
+
+    var fails = 0;
+    var correct = masWord.length;
+    var testWord =[];
+    for (var test = 0;test<masWord.length;test++){
+        testWord[test]="*";
+    }
+    console.log(testWord);
+
+    while(correct>0 && fails < 9){
+        var letter=prompt("Enter letter:");
+
+        if(masWord.indexOf(letter)==-1){
+            fails++;
+            console.log(fails);
+        }
+
+        for (var i=0 ; i<masWord.length; i++){
+            if(letter==masWord[i]){
+
+                testWord[i]=letter;
+                delete masWord[i];
+                correct--;
+
+                console.log(correct);
+            }
+        }
+
+
+        guessedChars();
+
+        drawVictim(fails, contextOfCanvas);
+
+        for(var j = 0 ; j<testWord.length;j++){
+            console.log(testWord[j]);
+        }
+        console.log(testWord);
+        function drawVictim(currentStep, context) {
+            switch (currentStep) {
+
+                case(1):
+
+                    context.beginPath();
+                    context.moveTo(10, 10);
+                    context.lineTo(10, 500);
+                    context.stroke();
+                    break;
+
+
+                case(2):
+                    context.moveTo(10, 10);
+                    context.lineTo(200, 10);
+                    context.stroke();
+                    break;
+
+
+                case(3):
+                    context.lineTo(200, 50);
+                    context.stroke();
+                    break;
+
+                case(4):
+                    context.arc(200, 75, 25, 1.5 * Math.PI, 4 * Math.PI);
+                    context.stroke();
+                    break;
+
+                case(5):
+                    context.moveTo(200, 100);
+                    context.lineTo(200, 280);
+                    context.stroke();
+                    break;
+
+                case(6):
+                    context.moveTo(200, 120);
+                    context.lineTo(120, 160);
+                    context.stroke();
+                    break;
+
+                case(7):
+                    context.moveTo(200, 120);
+                    context.lineTo(280, 160);
+                    context.stroke();
+                    break;
+
+                case(8):
+                    context.moveTo(200, 280);
+                    context.lineTo(150, 450);
+                    context.stroke();
+                    break;
+
+                case(9):
+                    context.moveTo(200, 280);
+                    context.lineTo(250, 450);
+                    context.stroke();
+                    break;
+            }
+        };
+        function guessedChars() {document.getElementById('result').innerHTML = testWord.join('')}
+    }
+
+
+
+        drawGuessedChars();
+
+        drawVictim(fails, contextOfCanvas);
+    }
+
+    function drawGuessedChars() {
+        document.getElementById('result').innerHTML = testWord.join('');
+    }
+
+    function drawVictim(currentStep, context) {
+        switch (currentStep) {
+
+            case(1):
+                context.beginPath();
+                context.moveTo(10, 10);
+                context.lineTo(10, 500);
+                context.stroke();
+                break;
+
+
+            case(2):
+                context.moveTo(10, 10);
+                context.lineTo(200, 10);
+                context.stroke();
+                break;
+
+
+            case(3):
+                context.lineTo(200, 50);
+                context.stroke();
+                break;
+
+            case(4):
+                context.arc(200, 75, 25, 1.5 * Math.PI, 4 * Math.PI);
+                context.stroke();
+                break;
+
+            case(5):
+                context.moveTo(200, 100);
+                context.lineTo(200, 280);
+                context.stroke();
+                break;
+
+            case(6):
+                context.moveTo(200, 120);
+                context.lineTo(120, 160);
+                context.stroke();
+                break;
+
+            case(7):
+                context.moveTo(200, 120);
+                context.lineTo(280, 160);
+                context.stroke();
+                break;
+
+            case(8):
+                context.moveTo(200, 280);
+                context.lineTo(150, 450);
+                context.stroke();
+                break;
+
+            case(9):
+                context.moveTo(200, 280);
+                context.lineTo(250, 450);
+                context.stroke();
+                break;
+
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>
