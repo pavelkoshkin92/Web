@@ -2,30 +2,55 @@ var turtle = document.getElementById("turtle");
 
 
 
-  addEventListener("keydown", function(event) {
+  window.addEventListener("keydown", function(event) {
     if (event.keyCode == 68)
 		
 	  right();
   });
 
  
-addEventListener("keydown", function(event) {
+window.addEventListener("keydown", function(event) {
     if (event.keyCode == 65)
      
 	  left();
   });
 
-addEventListener("keydown", function(event) {
+window.addEventListener("keydown", function(event) {
     if (event.keyCode == 83)
      
 	  bottom();
   });
 
-addEventListener("keydown", function(event) {
+window.addEventListener("keydown", function(event) {
     if (event.keyCode == 87)
      
 	  up();
   });
+window.addEventListener("keydown", function(event) {
+	if (event.keyCode == 32)
+
+		jump();
+});
+var isJumpState = false;
+
+
+function jump(){
+	if(isJumpState){
+		return;
+	}
+
+	var transforms = turtle.style.transform;
+
+	turtle.style.transform += 'scale(1.3, 1.3)';
+	isJumpState = true;
+
+	setTimeout(function(){
+		turtle.style.transform = transforms;
+		isJumpState = false;
+	},
+		1000);
+
+}
  	
 
 function right(){
@@ -34,6 +59,7 @@ function right(){
 	turtle.style.left = turtle.offsetLeft;
 	a = turtle.offsetLeft;
 	turtle.style.left=(a+10)+"px";
+	turtle.style.transform='rotateZ(90deg)'
 	
 	
 }
@@ -44,6 +70,7 @@ function left(){
 	turtle.style.right = turtle.offsetLeft;
 	a = turtle.offsetLeft;
 	turtle.style.left=(a-10)+"px";
+	turtle.style.transform='rotateZ(-90deg)'
 	
 }
 function bottom(){
@@ -52,6 +79,7 @@ function bottom(){
 	turtle.style.top = turtle.offsetTop;
 	a = turtle.offsetTop;
 	turtle.style.top=(a+10)+"px";
+	turtle.style.transform='rotateZ(180deg)'
 	
 }
 function up(){
@@ -60,5 +88,6 @@ function up(){
 	turtle.style.top = turtle.offsetTop;
 	a = turtle.offsetTop;
 	turtle.style.top=(a-10)+"px";
+	turtle.style.transform='rotateZ(0)'
 	
 }
