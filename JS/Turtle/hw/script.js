@@ -33,6 +33,8 @@ window.addEventListener("keydown", function(event) {
 });
 var isJumpState = false;
 
+var transformStyles = [];
+
 
 function jump(){
 	if(isJumpState){
@@ -41,12 +43,14 @@ function jump(){
 
 	var transforms = turtle.style.transform;
 
-	turtle.style.transform += 'scale(1.3, 1.3)';
+	transformStyles[1] += 'scale(1.3, 1.3)';
 	isJumpState = true;
+	changeTransform();
 
 	setTimeout(function(){
-		turtle.style.transform = transforms;
+		delete transformStyles[1];
 		isJumpState = false;
+		changeTransform();
 	},
 		1000);
 
@@ -59,7 +63,8 @@ function right(){
 	turtle.style.left = turtle.offsetLeft;
 	a = turtle.offsetLeft;
 	turtle.style.left=(a+10)+"px";
-	turtle.style.transform='rotateZ(90deg)'
+	transformStyles[0]='rotateZ(90deg)';
+	changeTransform();
 	
 	
 }
@@ -70,7 +75,8 @@ function left(){
 	turtle.style.right = turtle.offsetLeft;
 	a = turtle.offsetLeft;
 	turtle.style.left=(a-10)+"px";
-	turtle.style.transform='rotateZ(-90deg)'
+	transformStyles[0]='rotateZ(-90deg)';
+	changeTransform();
 	
 }
 function bottom(){
@@ -79,7 +85,8 @@ function bottom(){
 	turtle.style.top = turtle.offsetTop;
 	a = turtle.offsetTop;
 	turtle.style.top=(a+10)+"px";
-	turtle.style.transform='rotateZ(180deg)'
+	transformStyles[0]='rotateZ(180deg)';
+	changeTransform();
 	
 }
 function up(){
@@ -88,6 +95,10 @@ function up(){
 	turtle.style.top = turtle.offsetTop;
 	a = turtle.offsetTop;
 	turtle.style.top=(a-10)+"px";
-	turtle.style.transform='rotateZ(0)'
+	transformStyles[0] ='rotateZ(0)';
+	changeTransform();
 	
+}
+function changeTransform(){
+	turtle.style.stransform = transformStyles.join('');
 }
