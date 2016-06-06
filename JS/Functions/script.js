@@ -23,7 +23,7 @@ function diff(d1, d2) {
     */
 
 /////anonym func 1
-function getResult(){
+/*function getResult(){
     return 1;
 }
 var getAnotherResult = function(){
@@ -68,3 +68,60 @@ setTimeout(function(){
 }, 1000);
 
 console.log(3);
+*/
+
+///
+ function _1(){
+     return function _2(){
+         return 2;
+     }
+ }
+var returnedFunc = _1(),
+    result = returnedFunc();
+
+console.log(returnedFunc);
+console.log(result);
+console.log("===================");
+
+///closure
+
+function counter(){
+    var i=0;
+
+    return function tick(){
+        console.log(i++);
+    }
+}
+
+var count = counter();
+var count_2 = counter();
+count();
+count();
+count();
+count();
+count();
+
+
+console.log("--------------");
+
+
+count_2();
+count_2();
+count_2();
+count_2();
+count_2();
+
+console.log("===================");
+
+//examples
+
+function initHelloTimer(){
+    var msg = 'Hello';
+
+    setTimeout(function(){
+        console.log(msg)
+    }, 3000)
+}
+
+initHelloTimer();
+ 
