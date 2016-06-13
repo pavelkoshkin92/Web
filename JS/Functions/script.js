@@ -71,6 +71,7 @@ console.log(3);
 */
 
 ///
+/*
  function _1(){
      return function _2(){
          return 2;
@@ -124,4 +125,33 @@ function initHelloTimer(){
 }
 
 initHelloTimer();
- 
+*/
+
+///recursive function / fibonacci
+
+function fibonacci(prev, current){
+    if(prev > 100){
+        return;
+    }
+    console.log(prev);
+
+    return fibonacci(prev + current, prev);
+}
+fibonacci(1,0);
+
+
+
+console.log('+++++++++++');
+
+
+
+
+function loop(i){
+    if(i > 10){
+        return i;
+
+    }
+
+    return loop(++i)
+}
+console.log(loop(0));

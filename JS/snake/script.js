@@ -78,6 +78,9 @@ window.addEventListener("keydown", function(event) {
 
 function start(){
     move(right);
+    snake.style.left = 0 + 'px';
+    snake.style.top = 0 + 'px';
+
 }
 
 
@@ -129,5 +132,6 @@ function down(){
 
 }
 function addElementSnake() {
+    var _div = document.createElement('div')
 
 }
