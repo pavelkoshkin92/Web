@@ -36,8 +36,8 @@ console.log(profile.name);
     name: "Paul",
     address: {
         street: "",
-        city = "",
-        country = ""
+        city: "",
+        country: ""
     },
     skills: [
                 "testing",
