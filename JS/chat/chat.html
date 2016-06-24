@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre id="chat">
+</pre>
+<select id="user">
+
+</select>
+<input type="text" id ="chatbox">
+<script>
+    function User(name){
+        this.name  = name;
+
+        this.say = function(msg){
+            return msg;
+        }
+    }
+
+    function Admin(){
+        User.apply(this, ['admin']);
+
+        this.say = function(msg){
+            return `!!! ${msg} !!!`
+        }
+    }
+
+    function Chat(chatEl){
+        this.listUsers = [];
+
+        this.login = function(user){
+            this.listUsers.push(user)
+        };
+        this.logout = function(user){
+            this.listUsers = this.listUsers.filter(function(current) {return current !== user;
+            })
+        };
+        this.saidByUser = function(user, msg){
+            if(!this.isUserLoggedIn(user)){
+               return console.error(`user[${user.name}] is not logged in`)
+            }
+
+            var msg = user.say(msg);
+            chatEl.innerText += `${user.name}: ${msg}  \r\n`;
+
+        };
+        this.isUserLoggedIn = function(user){
+            return !!this.listUsers.find(function(current){
+                return current === user;
+            });
+        };
+        this.getUserByName = function(name){
+            return this.listUsers.find(function(currentUser){
+                return currentUser.name === name;
+            })
+        }
+    }
+
+    var chatEl = document.getElementById('chat');
+    var chat = new Chat(chatEl);
+
+    var max = new User('max');
+    var vasya = new User('vasya');
+    var admin = new Admin();
+    chat.login(max);
+    chat.login(admin);
+    chat.login(vasya);
+
+
+
+    var input = document.getElementById("chatbox");
+
+    input.addEventListener('keypress', function(event){
+        var msg = event.target.value;
+        var user = chat.getUserByName(select.value);
+
+        if(event.keyCode === 13 && msg){
+            chat.saidByUser(user, msg);
+            event.target.value = '';
+        }
+    });
+    var select = document.getElementById("user");
+    chat.listUsers.forEach(function(current){
+        select.innerHTML += `<option value = "${current.name}">${current.name}</option>>`
+    })
+
+</script>
+</body>
+</html>

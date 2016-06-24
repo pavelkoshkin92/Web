@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var word = prompt("Enter the word");
+    //var word_i = word.toLowerCase();
+    //var word_i_last = word_i[word_i.length-1].toUpperCase();
+    var reverse_word = [];
+    //reverse_word.push(word_i_last);
+
+    for(var i=word.length-1; i >=0; i--){
+       reverse_word.push(word[i]);
+        reverse_word[0].toUpperCase();
+    }
+
+    var reverse = reverse_word.join("");
+
+    alert("Your word is: " + word);
+    alert("Reverse word is: " + reverse);
+
+</script>
+</body>
+</html>
