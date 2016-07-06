@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id = "win_props">All window properties</button>
+<script>
+var btn = document.getElementById("win_props");
+    btn.addEventListener("click", function(){
+        for(var property in window) {
+            if (typeof window[property] !== 'function' ) {
+
+                document.body.innerHTML += `${property} <br>`;
+            }
+        }
+        document.body.style.backgroundColor = "yellow";
+    })
+</script>
+<button id = "open_win">Open Google</button>
+<script>
+    var btn = document.getElementById("open_win");
+    btn.addEventListener("click", function(){
+        var win = window.open('http://localhost:63342/Web/JS/BOM/index.html?_ijt=qham0grauiieobtt046cih6gej');
+
+
+        setTimeout(function(){
+            var el = win.document.getElementById("win_props");
+
+            el.innerText = 'Click me';
+
+        }, 3000);
+
+
+    })
+</script>
+<script>
+    //smooth scrolling HOME TASK
+
+
+</script>
+</body>
+</html>

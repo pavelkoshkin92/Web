@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        li{
+            list-style-type: none;
+            margin-bottom:10px;
+        }
+        #log_err,#pass_err{
+            color:red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<form action="" name = "form" id = "form">
+    <ul>
+        <li><input type="text" placeholder = "login" id = "login" name = "login"></li>
+        <li id="log_err"></li>
+        <li><input type="password" placeholder = "password" id = "password" name = "password"></li>
+        <li id = "pass_err"></li>
+        <li><input type="submit" value = "Отправить"></li>
+     </ul>
+    <script>
+        window.onload = check();
+        function check(){
+            if(!localStorage.getItem("login")){
+
+            }
+            else{document.body.innerHTML = `Вы залогинены как ${localStorage.getItem("login")}`}
+        }
+        var users = {
+            name: "Vasya Pupkin",
+            login: "vasya@mail.ru",
+            password: "qwerty"
+        };
+
+        var button = document.querySelector("form");
+        var form = {};
+
+        button.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            form.login = document.form.login.value;
+            form.password = document.form.password.value;
+            if(form.login === users.login && form.password === users.password){
+                button.style.display = "none";
+                document.body.innerHTML = `Вы залогинены как ${users.name}`;
+                localStorage.setItem("login", users.login);
+                localStorage.setItem("password", users.password);
+            }
+            else if(form.login !== users.login){
+                document.getElementById("log_err").innerHTML = "Неправильный логин";
+                document.getElementById("pass_err").innerHTML = ""
+            }
+            else if(form.login === users.login&& form.password !== users.password){
+                document.getElementById("pass_err").innerHTML = "Неправильный пароль";
+                document.getElementById("log_err").innerHTML = "";
+            }
+        }
+        )
+
+    </script>
+</form>
+</body>
+</html>
