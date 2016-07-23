@@ -1,0 +1,21 @@
+.wrapper{
+    margin: 0 auto;
+    width:800px;
+}
+.news{
+    width: 45%;
+    height: 600px;
+    border: 1px solid black;
+}
+#left{
+    float: left;
+
+}
+#right{
+    float:right;
+}
+.top{
+    width: 100%;
+    height:35px;
+    border-bottom: 1px solid black;
+}

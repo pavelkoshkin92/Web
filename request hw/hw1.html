@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper{
+            margin:0 auto;
+        }
+        #view{
+            width: 100%;
+            height:600px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="top">
+        <form action="" name="first" id="first">
+            <input type="text" name="site" value="http://">
+            <input type="submit" value="+">
+        </form>
+        <form action="" name="second" id="second">
+            <select name="site_sel" id="" form="second"></select>
+            <input type="submit" value="GO">
+        </form>
+    </div>
+    <div id="view"></div>
+</div>
+<script>
+    var first = document.getElementById('first');
+    var second = document.getElementById('second');
+    var site_sel = second.elements["site_sel"];
+    var site = document.first.site;
+
+    first.addEventListener('submit', function(event){
+        event.preventDefault();
+        var option = document.createElement('option');
+        site_sel.appendChild(option);
+        option.innerHTML = `${site.value}`;
+        site.value = 'http://';
+    });
+
+//    second.addEventListener('submit', function(event){
+//        event.preventDefault();
+//        var value = site_sel.value;
+//        var req = new XMLHttpRequest;
+//        req.open('GET',`${value}`);
+//        req.send();
+//        req.onreadystatechange = function(){
+//            if(this.readyState === 4){
+//                document.getElementById('view').innerText = this.responseText;
+//            }
+//        }
+//
+//
+//    })
+        second.addEventListener('submit', function(event){
+            event.preventDefault();
+            var value = site_sel.value;
+            document.getElementById('view').innerHTML = `<iframe src = ${value} width="100%" height="600px"></iframe>`
+        })
+</script>
+</body>
+</html>
