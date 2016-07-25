@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<button>ok</button>
+<button>error</button>
+    <script>
+        function init_promise(){
+            var promise = jQuery.Deferred();
+
+            setTimeout(function(){
+                if(state === 'ok'){
+                    promise.resolve();
+                }
+                if(state === 'error'){
+                    promise.reject();
+                }
+            }, 1000);
+
+            return promise;
+
+        }
+        var state ='';
+        $('button').on('click',function(event){
+            state = event.target.innerHTML;
+        });
+        function init() {
+            return init_promise()
+                    .then(function () {
+                        console.log('ok1')
+                    })
+                    .then(function () {
+                        console.log('ok2')
+                    })
+                    .fail(function () {
+                        console.log('error1')
+                    })
+                    .fail(function () {
+                        console.log('error2')
+                    })
+        }
+        init().always(function(){
+            console.log('text to console')
+        })
+
+    </script>
+</body>
+</html>

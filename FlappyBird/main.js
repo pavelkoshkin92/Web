@@ -3,7 +3,15 @@ var canvas,
     ctx,
     width = 350,
     height = 580,
-    frames = 0;
+    frames = 0,
+    fps = 60,
+    currentstate,
+    states = {
+        preGame: 1,
+        game: 2,
+        endGame: 3
+    };
+
 
 
 function main() {
@@ -16,6 +24,7 @@ function main() {
     img.onload = function(){
         initSprites(this);
         drawLoop();
+        currentstate = states.preGame;
     };
     img.src = 'img/sprite.png';
 }
@@ -25,28 +34,39 @@ function drawBackgroundMain(){
     bg_m.draw(ctx,275,80);
 
 }
+function drawLoop() {
+    setTimeout(function() {
+        window.requestAnimationFrame(drawLoop);
+        ctx.clearRect(0,0,width,height);
+        drawBackgroundMain();
+        backgroundSecondary.drawBackgroundSecondary();
+        backgroundSecondary.x1 -= 2;
+        backgroundSecondary.x2 -= 2;
 
-function drawLoop(){
-    ctx.clearRect(0,0,width,height);
-    drawBackgroundMain();
-    backgroundSecondary.drawBackgroundSecondary();
-    backgroundSecondary.x1 -= 2;
-    backgroundSecondary.x2 -= 2;
+        frames ++;
 
-    frames ++;
-    
-    if(frames % 70 == 0){
-        backgroundSecondary.x1 = 0;
-        backgroundSecondary.x2 = 295;
-    }
-    
-    bird.bird_fly(bird.x, bird.y, bird_st.w, bird_st.h);
-    //bird.bird_wait();
-    
+        if(frames % 70 == 0){
+            backgroundSecondary.x1 = 0;
+            backgroundSecondary.x2 = 295;
+        }
+        
 
-    requestAnimationFrame(drawLoop);
+        //bird.bird_fly();
+        //bird.bird_wait();
+        switch(currentstate){
+            case states.preGame:
+                bird.bird_wait();
+                break;
+            case states.game:
+                bird.bird_fly();
+                break;
+            case states.endGame:
+                console.log("TODO: make endGame")
+        }
 
+    }, 1000 / fps);
 }
+
 
 var backgroundSecondary = {
     x1:0,
@@ -76,34 +96,25 @@ var bird = {
         bird_u.draw(ctx,this.x,this.y);
 
     },
-    bird_fly: function(x,y,w,h){
+    bird_fly: function(){
         this.frame = Math.floor(frames / 10);
         if(this.frame % 2 === 0){
-            ctx.clearRect(x,y,w,h);
-            bird.bird_down(ctx, this.x, this.y)
+
+            bird.bird_down()
         }
         
         else if(this.frame % 2 !== 0){
-            ctx.clearRect(x,y,w,h);
-            bird.bird_up(ctx, this.x, this.y)
+
+            bird.bird_up()
         }
-
-        
-
     },
-    bird_wait: function(){
+    bird_wait: function() {
+        this.y = height/2 + 5*Math.cos(frames/10);
+        bird.bird_straight();
 
-        ctx.clearRect(this.x,this.y,bird_st.w,bird_st.h);
-        this.bird_straight(ctx, this.x, this.y);
-        if(this.y <= height/2) {
-            this.y += 10;
-        }
-        if(this.y >= height/2 + 20) {
-            this.y -= 10;
-        }
-
-            console.log(this.y)
     }
+
+
 };
 
 main();
