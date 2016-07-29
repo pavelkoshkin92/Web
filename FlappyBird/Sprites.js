@@ -1,11 +1,13 @@
-'use strict';
+' use strict ';
 var bg_m,
     bg_s,
     bird_st,
     bird_d,
     bird_u,
     pipe_t,
-    pipe_b;
+    pipe_b,
+    pipe_t_add,
+    pipe_b_add;
 
 
 function Sprite(img, x, y, width, height){
@@ -28,6 +30,10 @@ function initSprites(img) {
     bird_st = new Sprite(img, 525,175,37,29);
     bird_u  = new Sprite(img, 525,125,37,29);
     bird_d = new Sprite(img, 445,245,37,29);
-    pipe_t = new Sprite(img, 605,0,50,270);
-    pipe_b = new Sprite(img, 665,0,50,240)
+    pipe_t = new Sprite(img, 605,0,52,270);
+    pipe_b = new Sprite(img, 660,0,52,240);
+    pipe_t_add = new Sprite(img, 605,0,52,200);
+    pipe_b_add = new Sprite(img, 660,60,52,180);
+
+    
 }
