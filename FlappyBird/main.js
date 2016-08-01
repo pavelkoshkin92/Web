@@ -46,6 +46,7 @@ function drawLoop() {
         switch(currentstate){
 
             case states.preGame:
+                tap.draw(ctx,150,180);
                 //window.removeEventListener('keydown', listener_preStart);
                 window.addEventListener('keydown', listener);
                 bird.bird_wait();
@@ -88,6 +89,7 @@ function drawLoop() {
                 bird.gravity();
                 bird.bird_straight();
                 bird.bottom_stop();
+                game_over.draw(ctx, 80, 120);
                 //window.addEventListener('keydown', listener_preStart);
 
 
@@ -264,23 +266,23 @@ pipes = {
     check: function(){
 
         if(bird.x + bird_st.w >= this.pipeTop.x && bird.x <= this.pipeTop.x + pipe_t.w) {
-            if (bird.y >= this.pipeTop.y + pipe_t.h && bird.y + bird_st.h <= this.pipeBottom.y) {
-                if(bird.x === this.pipeTop.x+2){
+            if (bird.y > this.pipeTop.y + pipe_t.h && bird.y + bird_st.h < this.pipeBottom.y) {
+                if(bird.x === this.pipeTop.x + pipe_t.w){
                     score++
                 }
 
             }
             if (bird.y <= this.pipeTop.y + pipe_t.h) {
                 window.removeEventListener("keydown", listener);
-                bird.y += 5;
-                setTimeout('currentstate = states.endGame', 1500);
+                bird.y += 8;
+                setTimeout('currentstate = states.endGame', 1800);
 
 
             }
             if (bird.y + bird_st.h >= this.pipeBottom.y) {
                 window.removeEventListener("keydown", listener);
-                bird.y -= 5;
-                setTimeout('currentstate = states.endGame', 1500);
+                bird.y -= 2;
+                setTimeout('currentstate = states.endGame', 1800);
 
 
             }
@@ -290,23 +292,23 @@ pipes = {
 
 
         if(bird.x + bird_st.w >= this.pipeTop2.x && bird.x <= this.pipeTop2.x + pipe_t.w) {
-            if (bird.y >= this.pipeTop2.y + pipe_t.h && bird.y + bird_st.h <= this.pipeBottom2.y) {
-                if(bird.x === this.pipeTop2.x+2){
+            if (bird.y > this.pipeTop2.y + pipe_t.h && bird.y + bird_st.h < this.pipeBottom2.y) {
+                if(bird.x === this.pipeTop2.x + pipe_t.w){
                     score++
                 }
 
             }
             if (bird.y <= this.pipeTop2.y + pipe_t.h) {
                 window.removeEventListener("keydown", listener);
-                bird.y += 5;
-                setTimeout('currentstate = states.endGame', 1500);
+                bird.y += 8;
+                setTimeout('currentstate = states.endGame', 1800);
 
 
             }
             if (bird.y + bird_st.h >= this.pipeBottom2.y) {
                 window.removeEventListener("keydown", listener);
-                bird.y -= 5;
-                setTimeout('currentstate = states.endGame', 1500);
+                bird.y -= 2;
+                setTimeout('currentstate = states.endGame', 1800);
 
 
             }

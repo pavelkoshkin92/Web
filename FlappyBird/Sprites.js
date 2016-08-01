@@ -7,7 +7,9 @@ var bg_m,
     pipe_t,
     pipe_b,
     pipe_t_add,
-    pipe_b_add;
+    pipe_b_add,
+    game_over,
+    tap;
 
 
 function Sprite(img, x, y, width, height){
@@ -34,6 +36,8 @@ function initSprites(img) {
     pipe_t_add = new Sprite(img, 605,0,52,180);
     pipe_b = new Sprite(img, 660,0,52,240);
     pipe_b_add = new Sprite(img, 660,60,52,180);
+    game_over = new Sprite(img, 290,400,188,38);
+    tap = new Sprite(img, 350,280,80,65)
 
     
 }
