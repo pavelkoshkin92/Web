@@ -6,6 +6,7 @@ var canvas,
     frames = 0,
     fps = 60,
     currentstate,
+    score = 0,
     states = {
         preGame: 1,
         game: 2,
@@ -37,13 +38,16 @@ function drawLoop() {
         window.requestAnimationFrame(drawLoop);
         ctx.clearRect(0,0,width,height);
         drawBackgroundMain();
-        
+
         frames ++;
 
         console.log("jump frame "+bird.jump_frame);
 
         switch(currentstate){
+
             case states.preGame:
+                //window.removeEventListener('keydown', listener_preStart);
+                window.addEventListener('keydown', listener);
                 bird.bird_wait();
                 break;
             case states.game:
@@ -60,25 +64,34 @@ function drawLoop() {
 
                 }
 
-                console.log("fall_speed "+bird.fall_speed);
+                console.log("score: "+score);
                 bird.gravity();
                 bird.top_stop();
-                if(bird.y >= height - bg_s.h - bird_st.h){
-                    bird.bottom_stop();
-
-                    pipes.pipe_frame = 0;
-                }
+                bird.ground_check();
 
                 pipes.pipe_frame++;
 
                 if(pipes.pipe_frame === 1){
                     pipes.pipeTop.y = pipes.pipeTop.random(pipes.pipeTop.yMax, pipes.pipeTop.yMin);
-                    pipes.pipeBottom.y = pipes.pipeTop.y + pipe_t.h + 90
+                    pipes.pipeBottom.y = pipes.pipeTop.y + pipe_t.h + 90;
+                    pipes.pipeTop2.y = pipes.pipeTop.random(pipes.pipeTop.yMax, pipes.pipeTop.yMin);
+                    pipes.pipeBottom2.y = pipes.pipeTop2.y + pipe_t.h + 90
                 }
                 pipes.pipesDraw();
+                pipes.pipesDraw2();
+                pipes.check();
                 break;
             case states.endGame:
-                console.log("TODO: make endGame")
+
+                pipes.pipe_frame = 0;
+                bird.jump_frame = 0;
+                bird.gravity();
+                bird.bird_straight();
+                bird.bottom_stop();
+                //window.addEventListener('keydown', listener_preStart);
+
+
+                break;
         }
         backgroundSecondary.drawBackgroundSecondary();
         backgroundSecondary.x1 -= 2;
@@ -87,20 +100,26 @@ function drawLoop() {
             backgroundSecondary.x1 = 0;
             backgroundSecondary.x2 = 295;
         }
-        window.addEventListener('keydown', function(event){
-            if(event.keyCode === 32){
-                currentstate = states.game;
-                bird.jump_frame = 0;
-                bird.fall_speed = 0;
 
-
-            }
-        })
 
     }, 1000 / fps);
 }
 
+var listener = function(event){
+    if(event.keyCode === 32){
+        currentstate = states.game;
+        bird.jump_frame = 0;
+        bird.fall_speed = 0;
 
+
+    }
+};
+var listener_preStart = function(event){
+    if(event.keyCode === 32){
+        currentstate = states.preGame;
+    }
+
+};
 var backgroundSecondary = {
     x1:0,
     x2:295,
@@ -117,7 +136,7 @@ var bird = {
     y:height/2,
     frame: 0,
     jump_frame:0,
-    grav: 0.15,
+    grav: 0.18,
     fall_speed: 0,
     max_speed: 8,
 
@@ -148,7 +167,7 @@ var bird = {
         bird.bird_straight();
     },
     bird_jump: function(){
-        this.y -= 7 ;
+        this.y -= 6 ;
     },
     bird_fall: function(){
         this.bird_straight();
@@ -172,14 +191,26 @@ var bird = {
     bottom_stop: function () {
         this.fall_speed /= 2;
         this.fall_speed *= -1;
-        this.y = height - bg_s.h - bird_st.h
+        this.y = height - bg_s.h - bird_st.h;
+
+    },
+    ground_check: function(){
+        if(bird.y >= height - bg_s.h - bird_st.h){
+            window.removeEventListener("keydown", listener);
+            this.bottom_stop();
+            setTimeout('currentstate = states.endGame', 1200)
+
+
+
+        }
+
     }
 };
 
 pipes = {
     pipe_frame: 0,
     pipeTop: {
-        yMax: 0,
+        yMax: 50,
         yMin: - 240,
         random: function(max, min){return Math.floor(Math.random() * (max - min + 1)) + min},
         x: width + 30,
@@ -189,15 +220,23 @@ pipes = {
         x: width + 30,
         y:0
     },
+    pipeTop2: {
+        x: width + 230,
+        y: 0
+    },
+    pipeBottom2: {
+        x: width + 230,
+        y:0
+    },
 
     pipesDraw: function(){
         pipe_t.draw(ctx, this.pipeTop.x, this.pipeTop.y);
         this.pipeTop.x -= 2;
-
+        this.pipeBottom.x -= 2;
         pipe_b.draw(ctx, this.pipeBottom.x, this.pipeBottom.y);
         pipe_b_add.draw(ctx, this.pipeBottom.x,  this.pipeBottom.y + pipe_b.h);
-        pipe_t_add.draw(ctx, this.pipeTop.x, this.pipeTop.y - pipe_t_add.h);
-        this.pipeBottom.x -= 2;
+        pipe_t_add.draw(ctx, this.pipeTop.x+2, this.pipeTop.y - pipe_t_add.h);
+
         if(this.pipeTop.x <= -50){
             this.pipeTop.x = width + 30;
             this.pipeBottom.x = width + 30 ;
@@ -205,80 +244,76 @@ pipes = {
             this.pipeBottom.y = this.pipeTop.y + pipe_t.h + 90
         }
 
+    },
+    pipesDraw2: function(){
+        pipe_t.draw(ctx, this.pipeTop2.x, this.pipeTop2.y);
+        this.pipeTop2.x -= 2;
+        this.pipeBottom2.x -= 2;
+        pipe_b.draw(ctx, this.pipeBottom2.x, this.pipeBottom2.y);
+        pipe_b_add.draw(ctx, this.pipeBottom2.x,  this.pipeBottom2.y + pipe_b.h);
+        pipe_t_add.draw(ctx, this.pipeTop2.x+2, this.pipeTop2.y - pipe_t_add.h);
+
+        if(this.pipeTop2.x <= -50){
+            this.pipeTop2.x = width + 30;
+            this.pipeBottom2.x = width + 30 ;
+            this.pipeTop2.y = this.pipeTop.random(this.pipeTop.yMax, this.pipeTop.yMin);
+            this.pipeBottom2.y = this.pipeTop2.y + pipe_t.h + 90
+        }
+
+    },
+    check: function(){
+
+        if(bird.x + bird_st.w >= this.pipeTop.x && bird.x <= this.pipeTop.x + pipe_t.w) {
+            if (bird.y >= this.pipeTop.y + pipe_t.h && bird.y + bird_st.h <= this.pipeBottom.y) {
+                if(bird.x === this.pipeTop.x+2){
+                    score++
+                }
+
+            }
+            if (bird.y <= this.pipeTop.y + pipe_t.h) {
+                window.removeEventListener("keydown", listener);
+                bird.y += 5;
+                setTimeout('currentstate = states.endGame', 1500);
+
+
+            }
+            if (bird.y + bird_st.h >= this.pipeBottom.y) {
+                window.removeEventListener("keydown", listener);
+                bird.y -= 5;
+                setTimeout('currentstate = states.endGame', 1500);
+
+
+            }
+        }
+
+
+
+
+        if(bird.x + bird_st.w >= this.pipeTop2.x && bird.x <= this.pipeTop2.x + pipe_t.w) {
+            if (bird.y >= this.pipeTop2.y + pipe_t.h && bird.y + bird_st.h <= this.pipeBottom2.y) {
+                if(bird.x === this.pipeTop2.x+2){
+                    score++
+                }
+
+            }
+            if (bird.y <= this.pipeTop2.y + pipe_t.h) {
+                window.removeEventListener("keydown", listener);
+                bird.y += 5;
+                setTimeout('currentstate = states.endGame', 1500);
+
+
+            }
+            if (bird.y + bird_st.h >= this.pipeBottom2.y) {
+                window.removeEventListener("keydown", listener);
+                bird.y -= 5;
+                setTimeout('currentstate = states.endGame', 1500);
+
+
+            }
+        }
+
     }
 
 };
 
 main();
-// function draw_bg(){
-//     var bg_s = new Image();
-//
-//     bg_s.onload = function(){
-//         ctx.drawImage(bg_s, 0,0,290,500, 0,80,290,500);
-//         ctx.drawImage(bg_s, 0,0,290,500, 275,80,290,500);
-//         ctx.drawImage(bg_s, 295,0,300,110, 0,470,300,110);
-//         ctx.drawImage(bg_s, 295,0,300,110, 295,470,300,110);
-//
-//         ctx.drawImage(bg_s, 525,175,37,29, 150,200,37,29);
-//         ctx.drawImage(bg_s, 525,125,37,29, 150,250,37,29);
-//         ctx.drawImage(bg_s, 445,245,37,29, 150,300,37,29);
-//
-//         ctx.drawImage(bg_s, 605,0,50,270, 250,0,50,270);
-//         ctx.drawImage(bg_s, 661,0,50,140, 250,330,50,140);
-//     };
-//     bg_s.src = 'img/sprite.png';
-// }
-
-
-
-
-
-
-
-
-
-// function Sprite(x, y, width, height){
-//
-//     this.x = x;
-//     this.y = y;
-//     this.w = width;
-//     this.h = height;
-// }
-// var bg = new Sprite(0, 0, 290, 500);
-//
-// var canvas = document.createElement("canvas");
-// var ctx = canvas.getContext("2d");
-// document.body.appendChild(canvas);
-// canvas.width = 320 ;
-// canvas.height = 580;
-//
-//
-//
-//
-//
-// var img = new Image();
-// img.src = 'img/sprite.png';
-//
-//
-//
-//
-//
-//
-// img.onload = function(){ctx.drawImage(img, bg.x,bg.y,bg.w,bg.h, 0,80,bg.w,bg.h)};
-
-
-// var background = new Image();
-//
-// background.onload = function(){ctx.drawImage(background, 0,0,270,225,  0,0,270,225)};
-// background.src = 'img/sheet.png';
-// ctx.drawImage(background, 0,0,270,225,  0,0,270,225 );
-
-
-
-/*var imageObj = new Image();
-
- imageObj.onload = function() {
- ctx.drawImage(imageObj, 0, 0);
- };
- imageObj.src = 'img/sheet.png';
- */

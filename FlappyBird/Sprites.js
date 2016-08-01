@@ -31,8 +31,8 @@ function initSprites(img) {
     bird_u  = new Sprite(img, 525,125,37,29);
     bird_d = new Sprite(img, 445,245,37,29);
     pipe_t = new Sprite(img, 605,0,52,270);
+    pipe_t_add = new Sprite(img, 605,0,52,180);
     pipe_b = new Sprite(img, 660,0,52,240);
-    pipe_t_add = new Sprite(img, 605,0,52,200);
     pipe_b_add = new Sprite(img, 660,60,52,180);
 
     
